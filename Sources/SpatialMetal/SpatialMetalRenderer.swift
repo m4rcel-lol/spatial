@@ -1,5 +1,7 @@
-import MetalKit
 import SpatialGraph
+
+#if canImport(MetalKit)
+import MetalKit
 
 public final class SpatialMetalRenderer: NSObject, MTKViewDelegate {
     public private(set) var transformMatrix = matrix_identity_float4x4
@@ -14,3 +16,11 @@ public final class SpatialMetalRenderer: NSObject, MTKViewDelegate {
         // Placeholder: instanced node quads, edge buffer draw, stencil outline pass, bloom pass.
     }
 }
+
+#else
+
+public final class SpatialMetalRenderer {
+    public init() {}
+}
+
+#endif

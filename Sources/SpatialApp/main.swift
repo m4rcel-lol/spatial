@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 import SpatialUI
 
@@ -9,3 +10,11 @@ struct SpatialAppMain: App {
         }
     }
 }
+#else
+@main
+struct SpatialAppMain {
+    static func main() {
+        print("SpatialApp (SwiftUI) is only available on Apple platforms.")
+    }
+}
+#endif

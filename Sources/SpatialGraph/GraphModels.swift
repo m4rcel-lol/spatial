@@ -1,5 +1,16 @@
 import Foundation
-import simd
+
+public struct Float2: Codable, Hashable {
+    public var x: Float
+    public var y: Float
+
+    public static let zero = Float2(x: 0, y: 0)
+
+    public init(x: Float, y: Float) {
+        self.x = x
+        self.y = y
+    }
+}
 
 public struct GraphNode: Identifiable, Codable, Hashable {
     public enum NodeType: String, Codable, CaseIterable {
@@ -13,11 +24,11 @@ public struct GraphNode: Identifiable, Codable, Hashable {
     public let id: UUID
     public let path: String
     public let size: Int64
-    public var position: SIMD2<Float>
+    public var position: Float2
     public var isPinned: Bool
     public let type: NodeType
 
-    public init(id: UUID = UUID(), path: String, size: Int64, position: SIMD2<Float> = .zero, isPinned: Bool = false, type: NodeType) {
+    public init(id: UUID = UUID(), path: String, size: Int64, position: Float2 = .zero, isPinned: Bool = false, type: NodeType) {
         self.id = id
         self.path = path
         self.size = size
