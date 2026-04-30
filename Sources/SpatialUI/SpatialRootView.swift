@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 
 public struct SpatialRootView: View {
@@ -22,3 +23,4 @@ public struct SpatialRootView: View {
         .preferredColorScheme(.dark)
     }
 }
+#endif
